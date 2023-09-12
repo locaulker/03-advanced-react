@@ -33,7 +33,8 @@ const UseStateArray = () => {
       <button
         type="button"
         style={{ marginTop: "2rem" }}
-        onClick={clearAllItems}
+        // onClick={clearAllItems}
+        onClick={() => setPeople([])}
       >
         ClearAllItems
       </button>
