@@ -8,7 +8,8 @@ const UseStateObject = () => {
   })
 
   const displayPerson = () => {
-    setPerson({ name: "John", age: 2, hobby: "gulfing" })
+    // setPerson({ name: "John", age: 2, hobby: "gulfing" })
+    setPerson({ ...person, name: "John" })
   }
 
   return (
