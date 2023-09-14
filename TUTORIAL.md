@@ -564,8 +564,8 @@ const FetchData = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(url)
-        const users = await response.json()
-        setUsers(users)
+        const fetchedData = await response.json()
+        setUsers(fetchedData)
       } catch (error) {
         console.log(error)
       }
