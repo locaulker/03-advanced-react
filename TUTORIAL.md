@@ -750,7 +750,7 @@ const MultipleReturnsBasics = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      // done fetching data
+      // pretend that you are done fetching data
       setIsLoading(false)
     }, 3000)
   }, [])
