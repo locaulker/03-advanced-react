@@ -160,7 +160,7 @@ const UseStateArray = () => {
 
   return (
     <div>
-      {people.map(person => {
+      {people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -185,13 +185,13 @@ import { data } from "../../../data"
 const UseStateArray = () => {
   const [people, setPeople] = React.useState(data)
 
-  const removeItem = id => {
-    let newPeople = people.filter(person => person.id !== id)
+  const removeItem = (id) => {
+    let newPeople = people.filter((person) => person.id !== id)
     setPeople(newPeople)
   }
   return (
     <div>
-      {people.map(person => {
+      {people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -351,7 +351,7 @@ export default UseStateGotcha
 If you want to update the state immediately and synchronously, you can pass a function to setState that receives the previous state as an argument and returns the new state. For example:
 
 ```js
-setState(prevState => {
+setState((prevState) => {
   return { ...prevState, value: newValue }
 })
 ```
@@ -360,7 +360,7 @@ This can be useful if you need to update the state based on the previous state, 
 
 ```js
 const handleClick = () => {
-  setValue(currentState => {
+  setValue((currentState) => {
     // must return otherwise undefined
     // below is the latest/current state value
     const newState = currentState + 1
@@ -379,7 +379,7 @@ const handleClick = () => {
   // }, 3000);
   setTimeout(() => {
     console.log("clicked the button")
-    setValue(currentState => {
+    setValue((currentState) => {
       return currentState + 1
     })
   }, 3000)
@@ -576,7 +576,7 @@ const FetchData = () => {
     <section>
       <h3>github users</h3>
       <ul className="users">
-        {users.map(user => {
+        {users.map((user) => {
           const { id, login, avatar_url, html_url } = user
           return (
             <li key={id}>
@@ -723,7 +723,7 @@ import Starter from "./tutorial/03-conditional-rendering/starter/01-multiple-ret
 Vanilla JS
 
 ```js
-const sayHello = name => {
+const sayHello = (name) => {
   if (name) {
     return `Hello, ${name}`
     // exit the function, skip rest of the code
@@ -1463,7 +1463,7 @@ import { people } from "../../../data"
 const List = () => {
   return (
     <div>
-      {people.map(person => {
+      {people.map((person) => {
         return <div>{person.name}</div>
       })}
     </div>
@@ -1480,7 +1480,7 @@ import Person from "./Person"
 const List = () => {
   return (
     <div>
-      {people.map(person => {
+      {people.map((person) => {
         return <Person key={person.name} {...person} />
       })}
     </div>
@@ -1615,7 +1615,7 @@ const ControlledInputs = () => {
   //   const value = e.target.value;
   // };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     // do something
     console.log(name, email)
@@ -1631,7 +1631,7 @@ const ControlledInputs = () => {
           type="text"
           className="form-input"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           id="name"
         />
       </div>
@@ -1644,7 +1644,7 @@ const ControlledInputs = () => {
           className="form-input"
           id="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
       <button type="submit" className="btn btn-block">
@@ -1666,7 +1666,7 @@ import Starter from "./tutorial/06-forms/starter/02-user-challenge.jsx"
 - setup onSubmit (for now just placeholder)
 - import data array (first array) from data
 - create another state value (data as default)
-- iterate over and display right after form (h4)
+- iterate over and display right after form (use h4)
 - when user submits the form add new person to the list
 
 - Extra Challenge
@@ -1679,7 +1679,7 @@ const UserChallenge = () => {
   const [name, setName] = useState("")
   const [users, setUsers] = useState(data)
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     // do something
     console.log(name)
@@ -1696,8 +1696,8 @@ const UserChallenge = () => {
     setName("")
   }
 
-  const removeUser = id => {
-    const updatedUsers = users.filter(person => person.id !== id)
+  const removeUser = (id) => {
+    const updatedUsers = users.filter((person) => person.id !== id)
     setUsers(updatedUsers)
   }
   return (
@@ -1712,7 +1712,7 @@ const UserChallenge = () => {
             type="text"
             className="form-input"
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             id="name"
           />
         </div>
@@ -1724,7 +1724,7 @@ const UserChallenge = () => {
       {/* render users */}
       <h2>users</h2>
 
-      {users.map(user => {
+      {users.map((user) => {
         return (
           <div key={user.id}>
             <h4>{user.name}</h4>
@@ -1759,11 +1759,11 @@ const MultipleInputs = () => {
     password: ""
   })
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     console.log(user)
   }
@@ -1837,11 +1837,11 @@ const OtherInputs = () => {
   const [shipping, setShipping] = useState(false)
   const [framework, setFramework] = useState("react")
 
-  const handleShipping = e => {
+  const handleShipping = (e) => {
     console.log(e.target.checked)
     setShipping(e.target.checked)
   }
-  const handleFramework = e => {
+  const handleFramework = (e) => {
     setFramework(e.target.value)
   }
   return (
@@ -1869,7 +1869,7 @@ const OtherInputs = () => {
             value={framework}
             onChange={handleFramework}
           >
-            {frameworks.map(framework => {
+            {frameworks.map((framework) => {
               return <option key={framework}>{framework}</option>
             })}
           </select>
@@ -1903,7 +1903,7 @@ import { useState } from "react"
 const UncontrolledInputs = () => {
   const [value, setValue] = useState(0)
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
 
     const formData = new FormData(e.currentTarget)
@@ -2011,7 +2011,7 @@ const UseRefBasics = () => {
 
   const isMounted = useRef(false)
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     console.log(refContainer.current)
     const name = refContainer.current.value
@@ -2070,7 +2070,7 @@ useToggle.js
 ```js
 import { useState } from "react"
 
-const useToggle = defaultValue => {
+const useToggle = (defaultValue) => {
   const [show, setShow] = useState(defaultValue)
   const toggle = () => {
     setShow(!show)
@@ -2095,7 +2095,7 @@ useFetchPerson.js
 ```js
 import { useState, useEffect } from "react"
 
-const useFetchPerson = url => {
+const useFetchPerson = (url) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
   const [user, setUser] = useState(null)
@@ -2136,7 +2136,7 @@ useFetch.js
 ```js
 import { useState, useEffect } from "react"
 
-const useFetch = url => {
+const useFetch = (url) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
   // change state value
@@ -2333,8 +2333,8 @@ import { data } from "../../../data"
 const ReducerBasics = () => {
   const [people, setPeople] = React.useState(data)
 
-  const removeItem = id => {
-    let newPeople = people.filter(person => person.id !== id)
+  const removeItem = (id) => {
+    let newPeople = people.filter((person) => person.id !== id)
     setPeople(newPeople)
   }
   const resetList = () => {
@@ -2342,7 +2342,7 @@ const ReducerBasics = () => {
   }
   return (
     <div>
-      {people.map(person => {
+      {people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -2398,7 +2398,7 @@ const reducer = (state, action) => {
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  const removeItem = id => {
+  const removeItem = (id) => {
     // let newPeople = people.filter((person) => person.id !== id);
     // setPeople(newPeople);
   }
@@ -2413,7 +2413,7 @@ const ReducerBasics = () => {
   return (
     <div>
       {/* switch to state */}
-      {state.people.map(person => {
+      {state.people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -2467,7 +2467,7 @@ const reducer = (state, action) => {
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  const removeItem = id => {
+  const removeItem = (id) => {
     // let newPeople = people.filter((person) => person.id !== id);
     // setPeople(newPeople);
   }
@@ -2482,7 +2482,7 @@ const ReducerBasics = () => {
   console.log(state)
   return (
     <div>
-      {state.people.map(person => {
+      {state.people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -2541,7 +2541,7 @@ const reducer = (state, action) => {
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  const removeItem = id => {}
+  const removeItem = (id) => {}
 
   const clearList = () => {
     dispatch({ type: CLEAR_LIST })
@@ -2551,7 +2551,7 @@ const ReducerBasics = () => {
   return (
     <div>
       {/* switch to state */}
-      {state.people.map(person => {
+      {state.people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -2616,7 +2616,7 @@ const reducer = (state, action) => {
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  const removeItem = id => {}
+  const removeItem = (id) => {}
 
   const clearList = () => {
     dispatch({ type: CLEAR_LIST })
@@ -2628,7 +2628,7 @@ const ReducerBasics = () => {
   return (
     <div>
       {/* switch to state */}
-      {state.people.map(person => {
+      {state.people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -2690,7 +2690,7 @@ const reducer = (state, action) => {
   }
   if (action.type === REMOVE_ITEM) {
     let newPeople = state.people.filter(
-      person => person.id !== action.payload.id
+      (person) => person.id !== action.payload.id
     )
 
     return { ...state, people: newPeople }
@@ -2702,7 +2702,7 @@ const reducer = (state, action) => {
 const ReducerBasics = () => {
   const [state, dispatch] = useReducer(reducer, defaultState)
 
-  const removeItem = id => {
+  const removeItem = (id) => {
     dispatch({ type: REMOVE_ITEM, payload: { id } })
   }
 
@@ -2716,7 +2716,7 @@ const ReducerBasics = () => {
   return (
     <div>
       {/* switch to state */}
-      {state.people.map(person => {
+      {state.people.map((person) => {
         const { id, name } = person
         return (
           <div key={id} className="item">
@@ -2812,7 +2812,7 @@ import { useState } from "react"
 
 const Form = ({ addPerson }) => {
   const [name, setName] = useState("")
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (!name) {
       alert("Please Provide Name Value")
@@ -2833,7 +2833,7 @@ const Form = ({ addPerson }) => {
           id="name"
           className="form-input"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
       </div>
       <button className="btn btn-block" type="submit">
@@ -2870,8 +2870,8 @@ React.memo(Component) - returns memoized component
 - setup remove person function
 
 ```js
-const removePerson = id => {
-  const newPeople = people.filter(person => person.id !== id)
+const removePerson = (id) => {
+  const newPeople = people.filter((person) => person.id !== id)
   setPeople(newPeople)
 }
 ```
@@ -2947,12 +2947,12 @@ import React, { useMemo } from "react"
 
 function MyComponent({ data }) {
   const processedData = useMemo(() => {
-    return data.map(item => item.toUpperCase())
+    return data.map((item) => item.toUpperCase())
   }, [data])
 
   return (
     <div>
-      {processedData.map(item => (
+      {processedData.map((item) => (
         <div key={item}>{item}</div>
       ))}
     </div>
@@ -2995,7 +2995,7 @@ const LatestReact = () => {
   const [items, setItems] = useState([])
   const [isPending, startTransition] = useTransition()
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setText(e.target.value)
 
     startTransition(() => {
@@ -3067,7 +3067,7 @@ const LatestReact = () => {
   const [items, setItems] = useState([])
   const [isPending, startTransition] = useTransition()
   const [show, setShow] = useState(false)
-  const handleChange = e => {
+  const handleChange = (e) => {
     setText(e.target.value)
 
     startTransition(() => {
