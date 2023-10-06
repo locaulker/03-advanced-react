@@ -2303,7 +2303,7 @@ import Starter from "./tutorial/10-useReducer/starter/01-useReducer.jsx"
 Challenge
 
 - let's add reset functionality
-- create function that set's people back to data array
+- create function that sets people back to data array
 - create another button, similar to clear just for reset
 - use conditional rendering to toggle between the buttons,
   depending on people value
