@@ -41,7 +41,7 @@ const ReducerBasics = () => {
         <button
           className="btn"
           style={{ marginTop: "2rem" }}
-          onClick={() => setPeople([])}
+          onClick={clearList}
         >
           clear
         </button>
