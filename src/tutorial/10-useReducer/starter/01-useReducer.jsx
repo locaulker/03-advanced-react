@@ -7,12 +7,15 @@ const defaultState = {
 }
 
 const CLEAR_LIST = "CLEAR_LIST"
-const reset_LIST = "reset_LIST"
+const RESET_LIST = "RESET_LIST"
 const REMOVE_ITEM = "REMOVE_ITEM"
 
 const reducer = (state, action) => {
-  if (action.type === "CLEAR_LIST") {
+  if (action.type === CLEAR_LIST) {
     return { ...state, people: [] }
+  }
+  if (action.type === RESET_LIST) {
+    return { ...state, people: data }
   }
   // return state
   throw new Error(`No matching "${action.type}" - action type`)
@@ -34,7 +37,7 @@ const ReducerBasics = () => {
   }
 
   const resetList = () => {
-    dispatch({ type: "something" })
+    dispatch({ type: RESET_LIST })
     // setPeople(data)
   }
 
